@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
 		this.worker = new Worker(window.URL.createObjectURL(blob));
 		this.worker.onmessage = (event) => {
 			this.timer = event.data;
-			if (this.timer === 5) {
+			if (this.timer === 60) {
 				this.router.navigate(['/lockscreen']);
 				this.stopTimer();
 			}

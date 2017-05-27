@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Config } from '../../shared/config';
 
 @Component({
 	moduleId: module.id,
@@ -9,16 +10,20 @@ import { AuthService } from '../auth.service';
 	providers: [AuthService]
 })
 
-export class LoginComponent{
-	user={type:"Patient"};
+export class LoginComponent {
+	user = { type: "Patient" };
 
-	constructor(private authService:AuthService,private router:Router){}
+	constructor(private authService: AuthService, 
+				private router: Router) {}
 
-	loginUser(){
+	loginUser() {
 		console.log(this.user);
-		this.router.navigate(['/']);
-		// this.authService.login(this.user).subscribe((data)=>{
-			
-		// })
+		this.authService.login(this.user).subscribe((data) => {
+			Config.current_user = data.user;
+			Config.token = data.token;
+			this.router.navigate(['/']);
+		},(error)=>{
+			console.log(error);
+		})
 	}
 }
