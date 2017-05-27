@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Care 360</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <!-- color CSS -->
+    <link href="css/colors/megna.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body ng-app="app" ng-controller="AppController as vm">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part"><a class="logo" href="dashboard.html"><b><img style="width:60px;-webkit-filter: drop-shadow(0px 0px 5px #fff);filter: drop-shadow(0px 0px 5px #fff);" src="../plugins/images/logo-lignt.png" alt="home" /></b><span class="hidden-xs"><strong>Care</strong>360</span></a></div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                    <li>
+                        <form role="search" class="app-search hidden-xs">
+                            <input type="text" placeholder="Recherche..." class="form-control"> <a href=""><i class="fa fa-search"></i></a>                            </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li ng-if="vm.user.type === 'Patient'" style="margin: auto;"><button class="btn btn-block btn-danger"><i class="ti-alert p-r-10"></i> Lancer une Alerte</button></li>
+                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
+          <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+          </a>
+                        <ul class="dropdown-menu mailbox animated bounceInDown">
+                            <li>
+                                <div class="drop-title">Vos messages</div>
+                            </li>
+                            <li>
+                                <div class="message-center">
+                                    <a href="#">
+                                        <div class="user-img"> <img src="../plugins/images/users/default-user-image.png" alt="user" class="img-circle">
+                                            <span class="profile-status online pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Un autre utilisateur</h5> <span class="mail-desc">le contenu du message!</span>
+                                            <span class="time">9:30 AM</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="text-center" href="javascript:void(0);"> <strong>Les notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-messages -->
+                    </li>
+
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="../plugins/images/users/default-user-image.png" alt="user-img" width="36" class="img-circle">
+                            <b class="hidden-xs">{{ vm.user.username || "Nom d'utilisateur" }}</b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li><a href="javascript:void(0)"><i class="ti-user"></i>  Mon Profil</a></li>
+                            <li><a href="javascript:void(0)"><i class="ti-email"></i>  Boite de réception</a></li>
+                            <li><a href="login.html"><i class="fa fa-power-off"></i>  Se déconnecter</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                        <!-- input-group -->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Recherche..."> <span class="input-group-btn">
+            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+            </span> </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li class="user-pro">
+                        <a class="waves-effect"><img src="../plugins/images/users/default-user-image.png" alt="user-img" class="img-circle">
+                            <span class="hide-menu">{{ vm.user.username || "Nom d'utilisateur" }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-small-cap m-t-10">--- Menu Principal</li>
+                    <li ng-if="vm.user.type === 'Patient'"> <a href="dashboard.html" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Acceuil</span></a>
+                    <li ng-if="vm.user.type !== 'Patient'"> <a href="dashboard.html" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Tableau de bord</span></a>
+                        <li> <a href="Inbox.html" class="waves-effect"><i class="ti-envelope p-r-10"></i> <span class="hide-menu">Boite de réception</span></a></li>
+                        <li> <a href="schedule.html" class="waves-effect"><i class="ti-calendar p-r-10"></i> <span class="hide-menu">Rendez-vous</span></a></li>
+                        <li class="nav-small-cap m-t-10" ng-if="vm.user.type !== 'Patient'">--- Professional</li>
+                        <li ng-if="vm.user.type !== 'Patient'"> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Médecins <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li> <a href="doctors.html">Tous les médecins</a> </li>
+                                <li> <a href="add-doctor.html" ng-if="vm.user.type === 'Administrateur'">Ajouter médecin</a> </li>
+                            </ul>
+                        </li>
+                        <li ng-if="vm.user.type !== 'Patient'"> <a href="javascript:void(0);" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> Patients <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li> <a href="patients.html">Tous les Patients</a> </li>
+                                <li> <a href="patients.html">Mes Patients</a> </li>
+                                <li> <a href="add-patient.html">Ajouter Patient</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-small-cap m-t-10" ng-if="vm.user.type === 'Patient'">--- Senté</li>
+                        <li ng-if="vm.user.type === 'Patient'"> <a href="#" class="waves-effect"><i class="ti-slice p-r-10"></i> <span class="hide-menu">Prise Glécymie</span></a></li>
+                        <li ng-if="vm.user.type === 'Patient'"> <a href="#" class="waves-effect"><i class="ti-pulse p-r-10"></i> <span class="hide-menu">Prise Tension</span></a></li>
+                        <li ng-if="vm.user.type === 'Patient'"> <a href="#" class="waves-effect"><i class="ti-support p-r-10"></i> <span class="hide-menu">Prise Poids</span></a></li>
+                        <li ng-if="vm.user.type === 'Patient'"> <a href="#" class="waves-effect"><i class="ti-bell p-r-10"></i> <span class="hide-menu">Traitements</span></a></li>
+                        <li ng-if="vm.user.type === 'Patient'"> <a href="#" class="waves-effect"><i class="ti-truck p-r-10"></i> <span class="hide-menu">Transport</span></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Inbox Detail</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">Inbox Detail</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <!-- Left sidebar -->
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3  col-sm-4 col-xs-12 inbox-panel">
+                                    <div> <a href="#" class="btn btn-custom btn-block waves-effect waves-light">Compose</a>
+                                        <div class="list-group mail-list m-t-20"> <a href="inbox.html" class="list-group-item active">Inbox <span class="label label-rouded label-success pull-right">5</span></a>                                            <a href="#" class="list-group-item ">Starred</a> <a href="#" class="list-group-item">Draft <span class="label label-rouded label-warning pull-right">15</span></a>                                            <a href="#" class="list-group-item">Sent Mail</a> <a href="#" class="list-group-item">Trash <span class="label label-rouded label-default pull-right">55</span></a>                                            </div>
+                                        <h3 class="panel-title m-t-40 m-b-0">Labels</h3>
+                                        <hr class="m-t-5">
+                                        <div class="list-group b-0 mail-list"> <a href="#" class="list-group-item"><span class="fa fa-circle text-info m-r-10"></span>Work</a>                                            <a href="#" class="list-group-item"><span class="fa fa-circle text-warning m-r-10"></span>Family</a>                                            <a href="#" class="list-group-item"><span class="fa fa-circle text-purple m-r-10"></span>Private</a>                                            <a href="#" class="list-group-item"><span class="fa fa-circle text-danger m-r-10"></span>Friends</a>                                            <a href="#" class="list-group-item"><span class="fa fa-circle text-success m-r-10"></span>Corporate</a>                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12 mail_listing">
+                                    <div class="media m-b-30 p-t-20">
+                                        <h4 class="font-bold m-t-0">Your message title goes here</h4>
+                                        <hr>
+                                        <a class="pull-left" href="#"> <img class="media-object thumb-sm img-circle" src="../plugins/images/users/pawandeep.jpg"
+                                                alt=""> </a>
+                                        <div class="media-body"> <span class="media-meta pull-right">07:23 AM</span>
+                                            <h4 class="text-danger m-0">Pavan kumar</h4> <small class="text-muted">From: jonathan@domain.com</small>                                            </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                        dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                                        quis, sem.Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+                                        nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
+                                        justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+                                        Vivamus elementum semper nisi.</p>
+                                    <p>enean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+                                        dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+                                        laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+                                        ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus
+                                        eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed
+                                        ipsum. Nam quam nunc, blandit vel, luctus pulvinar,</p>
+                                    <hr>
+                                    <h4> <i class="fa fa-paperclip m-r-10 m-b-10"></i> Attachments <span>(3)</span> </h4>
+                                    <div class="row">
+                                        <div class="col-sm-2 col-xs-4">
+                                            <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="../plugins/images/img1.jpg">                                                </a>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-4">
+                                            <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="../plugins/images/img2.jpg">                                                </a>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-4">
+                                            <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="../plugins/images/img3.jpg">                                                </a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="b-all p-20">
+                                        <p class="p-b-20">click here to <a href="#">Reply</a> or <a href="#">Forward</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/tether.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!--Style Switcher -->
+    <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/angular-translate.min.js"></script>
+    <script src="js/angular-translate-loader-partial.min.js"></script>
+    <script src="js/ng-file-upload-all.min.js"></script>
+    <script src="js/satellizer.min.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
