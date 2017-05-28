@@ -7,7 +7,7 @@ declare var swal: any;
 	moduleId: module.id,
 	selector: 'main',
 	templateUrl: './main.component.html',
-	styles: ['./main.component.css']
+	styles: ['./main.component.scss']
 })
 
 export class MainComponent implements OnInit {
