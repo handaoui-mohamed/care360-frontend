@@ -7,7 +7,7 @@
   <nav class="navbar navbar-default navbar-static-top m-b-0">
     <div class="navbar-header">
       <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-      <div class="top-left-part"><a class="logo" href="dashboard.html"><b><img style="width:60px;-webkit-filter: drop-shadow(0px 0px 5px #fff);filter: drop-shadow(0px 0px 5px #fff);" src="assets/images/logo-lignt.png" alt="home" /></b><span class="hidden-xs"><strong>Care</strong>360</span></a></div>
+      <div class="top-left-part"><a class="logo" [routerLink]="''"><b><img style="width:60px;-webkit-filter: drop-shadow(0px 0px 5px #fff);filter: drop-shadow(0px 0px 5px #fff);" src="assets/images/logo-lignt.png" alt="home" /></b><span class="hidden-xs"><strong>Care</strong>360</span></a></div>
       <ul class="nav navbar-top-links navbar-left hidden-xs">
         <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
         <li>
@@ -52,7 +52,7 @@
           <ul class="dropdown-menu dropdown-user animated flipInY">
             <li><a href="javascript:void(0)"><i class="ti-user"></i>  Mon Profil</a></li>
             <li><a href="javascript:void(0)"><i class="ti-email"></i>  Boite de réception</a></li>
-            <li><a href="login.html"><i class="fa fa-power-off"></i>  Se déconnecter</a></li>
+            <li><a [routerLink]="'login'"><i class="fa fa-power-off"></i>  Se déconnecter</a></li>
           </ul>
           <!-- /.dropdown-user -->
         </li>
@@ -81,10 +81,10 @@
           </a>
         </li>
         <li class="nav-small-cap m-t-10">--- Menu Principal</li>
-        <li *ngIf="user.type === 'Patient'"> <a href="dashboard.html" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Acceuil</span></a>
-          <li *ngIf="user.type !== 'Patient'"> <a href="dashboard.html" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Tableau de bord</span></a>
+        <li *ngIf="user.type === 'Patient'"> <a [routerLink]="''" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Acceuil</span></a>
+          <li *ngIf="user.type !== 'Patient'"> <a [routerLink]="''" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Tableau de bord</span></a>
             <li> <a href="Inbox.html" class="waves-effect"><i class="ti-envelope p-r-10"></i> <span class="hide-menu">Boite de réception</span></a></li>
-            <li> <a href="schedule.html" class="waves-effect"><i class="ti-calendar p-r-10"></i> <span class="hide-menu">Rendez-vous</span></a></li>
+            <li> <a [routerLink]="'appointement'" class="waves-effect"><i class="ti-calendar p-r-10"></i> <span class="hide-menu">Rendez-vous</span></a></li>
             <li class="nav-small-cap m-t-10" *ngIf="user.type !== 'Patient'">--- Professional</li>
             <li *ngIf="user.type !== 'Patient'"> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Médecins <span class="fa arrow"></span></span></a>
               <ul class="nav nav-second-level">
@@ -96,7 +96,7 @@
               <ul class="nav nav-second-level">
                 <li> <a href="patients.html">Tous les Patients</a> </li>
                 <li> <a href="patients.html">Mes Patients</a> </li>
-                <li> <a href="add-patient.html">Ajouter Patient</a> </li>
+                <li> <a [routerLink]="'add-patient'">Ajouter Patient</a> </li>
               </ul>
             </li>
 

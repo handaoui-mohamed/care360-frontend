@@ -8,11 +8,19 @@ import { ROUTES } from './main.routes';
 
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard';
+import { PatientsList, AddPatient } from "./patients";
+import { DoctorsList, AddDoctor } from "./doctors";
+import { Appointement } from "./appointement";
 
 @NgModule({
   declarations: [
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddPatient,
+    PatientsList,
+    DoctorsList,
+    AddDoctor,
+    Appointement
   ],
   imports: [
     FormsModule,
