@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard';
 import { PatientsList, AddPatient } from "./patients";
 import { DoctorsList, AddDoctor } from "./doctors";
 import { Appointement } from "./appointement";
+import { Traitement } from "./traitement";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Appointement } from "./appointement";
     PatientsList,
     DoctorsList,
     AddDoctor,
-    Appointement
+    Appointement,
+    Traitement
   ],
   imports: [
     FormsModule,

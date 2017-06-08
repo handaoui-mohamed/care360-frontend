@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { PatientsList, AddPatient } from "./patients";
 import { DoctorsList, AddDoctor } from "./doctors";
 import { Appointement } from "./appointement";
+import { Traitement } from "./traitement";
 
 export const ROUTES: Routes = [
 	{ path: 'main', component: MainComponent, children:[
@@ -13,6 +14,7 @@ export const ROUTES: Routes = [
 		{ path: 'my-patients', component: PatientsList },
 		{ path: 'add-doctor', component: AddDoctor },
 		{ path: 'doctors-list', component: DoctorsList },
-		{ path: 'appointement', component: Appointement }
+		{ path: 'appointement', component: Appointement },
+		{ path: 'traitement/:patientId', component: Traitement }
 	]}
 ];

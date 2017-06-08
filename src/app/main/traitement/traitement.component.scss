@@ -1,0 +1,142 @@
+.wrapper {
+  max-width: 700px;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.list-top {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: #01c0c8;
+  -webkit-box-shadow: 1px 15px 25px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 1px 15px 25px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 15px 25px -5px rgba(0, 0, 0, 0.4);
+  padding-left: 10px;
+  text-align: right;
+  height: 55.44px;
+}
+
+.list-top h2 {
+  margin: 11px 0;
+  color: white;
+  text-align: left;
+}
+
+.list-top i {
+  position: relative;
+  color: white;
+  font-size: 1.25em;
+  cursor: pointer;
+  bottom: 40px;
+  right: 10px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+
+.add-to-list-active {
+  transform: rotate(225deg);
+  bottom: 35px;
+}
+
+.add-to-list-deactive {
+  transform: rotate(-180deg);
+}
+
+.to-do-input-wrapper {
+  display: none;
+}
+
+#to-do-input {
+  display: block;
+  width: 620px; 
+  height: 35px;
+  font-size: 1.1em;
+  margin: 20px auto;
+  box-shadow: 1px 15px 25px -5px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(240, 240, 240);
+  padding: 20px;
+  background: #fff;
+}
+
+input {
+  border: none;
+}
+
+#to-do-input:focus {
+  outline: none;
+  border: 1px solid #eee;
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+
+ul {
+  padding: 0;
+  box-shadow: 1px 10px 15px -5px rgba(0, 0, 0, 0.5);
+  width: 550px;
+  margin: 10px auto;
+}
+
+li {
+  list-style-type: none;
+  border-radius: 3px;
+  color: white;
+}
+
+.even {
+  background: #fff;
+}
+
+.even span {
+  color: #54667a;
+}
+
+.to-do-hidden {
+  display: none;
+}
+
+li h4 {
+  margin: 0px 0;
+  padding: 12px 0;
+}
+
+li:hover .delete {
+  width: 40px;
+  opacity: 1;
+}
+
+li:active .delete {
+  width: 40px;
+  opacity: 1;
+}
+
+.li-text {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, .9);
+}
+
+.delete {
+  width: 0;
+  opacity: 0;
+  color: #fb3e11;
+  margin-right: 5px;
+  transition: linear .3s;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+footer {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 80px;
+}
