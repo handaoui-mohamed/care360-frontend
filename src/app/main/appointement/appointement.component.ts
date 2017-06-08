@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from "@angular/core";
+import { AuthService } from "../../authentication/auth.service";
 declare var $: any;
 
 @Component({
@@ -8,6 +9,11 @@ declare var $: any;
 })
 export class Appointement implements AfterViewInit {
 	appointements: any[] = [];
+	user: any={};
+
+	constructor(private authService:AuthService){
+		this.user = authService.getCurrentUser();
+	}
 
 	ngAfterViewInit() {
 		$.getScript("assets/js/moment.min.js");

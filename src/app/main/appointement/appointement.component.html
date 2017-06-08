@@ -7,21 +7,21 @@
     <div class="container-fluid">
       <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h4 class="page-title">Doctor Schedule</h4>
+          <h4 class="page-title">Programme {{ user.type }}</h4>
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
           <ol class="breadcrumb">
             <li><a href="#">Hospital</a></li>
-            <li class="active">Doctor Schedule</li>
+            <li class="active">Programme {{ user.type }}</li>
           </ol>
         </div>
         <!-- /.col-lg-12 -->
       </div>
       <!-- row -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4" *ngIf="user.type !== 'Patient'">
           <div class="white-box">
-            <h3 class="box-title">Drag and drop your Appontment to calender</h3>
+            <h3 class="box-title">Faites glisser et déposez votre rendez-vous au calendrier</h3>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
 
@@ -35,17 +35,17 @@
                 <div class="checkbox">
                   <input id="drop-remove" type="checkbox">
                   <label for="drop-remove">
-                                  Remove after drop
-                              </label>
+                        Supprimer après le glissement
+                  </label>
                 </div>
                 <a href="#" data-toggle="modal" data-target="#add-new-event" class="btn btn-lg m-t-40 btn-danger btn-block waves-effect waves-light">
-                  <i class="ti-plus"></i> Fix Appointment
+                  <i class="ti-plus"></i> Fixer rendez-vous
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
           <div class="white-box">
             <div id="calendar"></div>
           </div>
@@ -53,18 +53,18 @@
       </div>
       <!-- /.row -->
       <!-- BEGIN MODAL -->
-      <div class="modal fade none-border" id="my-event">
+      <div class="modal fade none-border" id="my-event" style="padding-top:100px !important">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title"><strong>Fix Appointment</strong></h4>
+              <h4 class="modal-title"><strong>Fixer un rendez-vous</strong></h4>
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-              <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+              <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-success save-event waves-effect waves-light">Créer un rendez-vous</button>
+              <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Effacer</button>
             </div>
           </div>
         </div>
@@ -76,32 +76,32 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title"><strong>Fix</strong> Date</h4>
+              <h4 class="modal-title"><strong>Fixer</strong> Date</h4>
             </div>
             <div class="modal-body">
               <form role="form">
                 <div class="row">
                   <div class="col-md-6">
-                    <label class="control-label">Patient Name</label>
-                    <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
+                    <label class="control-label">Nom du Patient</label>
+                    <input class="form-control form-white" placeholder="Entrer le nom" type="text" name="category-name" />
                   </div>
                   <div class="col-md-6">
-                    <label class="control-label">Choose Category Color</label>
-                    <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                      <option value="success">Success</option>
-                                      <option value="danger">Danger</option>
-                                      <option value="info">Info</option>
-                                      <option value="primary">Primary</option>
-                                      <option value="warning">Warning</option>
-                                      <option value="inverse">Inverse</option>
-                                  </select>
+                    <label class="control-label">Choisissez la catégorie Couleur</label>
+                    <select class="form-control form-white" data-placeholder="Choisissez une couleur..." name="category-color">
+                        <option value="success">Succès</option>
+                        <option value="danger">Danger</option>
+                        <option value="info">Information</option>
+                        <option value="primary">Primaire</option>
+                        <option value="warning">Attention</option>
+                        <option value="inverse">Inverse</option>
+                    </select>
                   </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-              <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Ajouter</button>
+              <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Annuler</button>
             </div>
           </div>
         </div>

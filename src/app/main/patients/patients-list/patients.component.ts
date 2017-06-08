@@ -13,7 +13,6 @@ export class PatientsList{
 	constructor(private userService:UserService){
 		this.userService.getPatients().subscribe((data)=>{
 			this.patients = data.elements;
-			console.log(this.patients);
 		},(error)=>{
 
 		});
