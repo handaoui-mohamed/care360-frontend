@@ -211,7 +211,7 @@
           <form>
             <div class="form-group">
               <label for="message-text" class="control-label">Valeur:</label>
-              <input type="number" class="form-control" id="message-text">
+              <input type="number" name="value-glycemie" [(ngModel)]="newSample.value" class="form-control" id="message-text">
             </div>
             <div class="form-group">
               <label for="message-te" class="control-label">Date:</label>
@@ -239,7 +239,7 @@
           <form>
             <div class="form-group">
               <label for="message-text" class="control-label">Valeur:</label>
-              <input type="number" class="form-control" id="message-text">
+              <input type="number" name="value-tension" [(ngModel)]="newSample.value"  class="form-control" id="message-text">
             </div>
             <div class="form-group">
               <label for="message-te" class="control-label">Date:</label>
@@ -264,10 +264,10 @@
           <h4 class="modal-title">Ajouter prélèvement poids</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form >
             <div class="form-group">
               <label for="message-text" class="control-label">Valeur:</label>
-              <input type="number" class="form-control" id="message-text">
+              <input type="number" name="value-poids" [(ngModel)]="newSample.value" class="form-control" id="message-text">
             </div>
             <div class="form-group">
               <label for="message-te" class="control-label">Date:</label>
