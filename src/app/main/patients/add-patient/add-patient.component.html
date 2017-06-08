@@ -9,129 +9,104 @@
     <div class="container-fluid">
       <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h4 class="page-title">Add Patient</h4>
+          <h4 class="page-title">Ajouter Patient</h4>
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
           <ol class="breadcrumb">
-            <li><a [routerLink]="''">Hospital</a></li>
-            <li class="active">Add Patient</li>
+            <li><a [routerLink]="'/main'">Hospital</a></li>
+            <li class="active">Ajouter Patient</li>
           </ol>
         </div>
         <!-- /.col-lg-12 -->
       </div>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
           <div class="white-box">
-            <h3 class="box-title">Basic Information</h3>
+            <h3 class="box-title">Enter les informations concernant le Patient</h3>
             <form class="form-material form-horizontal">
               <div class="form-group">
-                <label class="col-md-12" for="example-text">Name</label>
+                <label class="col-md-12" for="example-text">Nom</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-text" name="example-text" class="form-control" placeholder="enter your name">
+                  <input type="text" id="example-text" [(ngModel)]='patient.last_name' name="example-text" class="form-control" placeholder="Nom du patient">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-12" for="bdate">Date of Birth</label>
+                <label class="col-md-12" for="example-text">Prénom</label>
                 <div class="col-md-12">
-                  <input type="text" id="bdate" name="bdate" class="form-control mydatepicker" placeholder="enter your birth date">
+                  <input type="text" id="example-text" [(ngModel)]='patient.first_name' name="example-text" class="form-control" placeholder="Prénom du patient">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-12">Gender</label>
+                <label class="col-md-12" for="example-text">Adresse</label>
+                <div class="col-md-12">
+                  <input type="text" id="exampe-text" [(ngModel)]='patient.address' name="example-text" class="form-control" placeholder="Adresse du patient">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12" for="bdate">Date de Naissance</label>
+                <div class="col-md-12">
+                  <input type="text" id="bdate" name="bdate" [(ngModel)]='patient.birthday' class="form-control mydatepicker" placeholder="Date de Naissance du Patient">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-12">Maladies</label>
                 <div class="col-sm-12">
-                  <select class="form-control">
-                                            <option>Select Gender</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                        </select>
+                  <select class="form-control" [(ngModel)]="patient.cases" name="patientCases">
+                      <option value="1">Alzheimer</option>
+                      <option value="2">Grossesse à risque</option>
+                      <option value="3">Diabétique</option>
+                  </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-12">Profile Image</label>
-                <div class="col-sm-12">
-                  <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                    <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                    <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span>                    <span class="fileinput-exists">Change</span>
-                    <input type="file" name="..."> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists"
-                      data-dismiss="fileinput">Remove</a> </div>
-                </div>
-              </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label class="col-md-12">Description</label>
                 <div class="col-md-12">
-                  <textarea class="form-control" rows="3"></textarea>
+                  <textarea class="form-control" rows="1" name="decription_patient" [(ngModel)]="patient.description"></textarea>
                 </div>
-              </div>
-              <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-              <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+              </div>-->
             </form>
           </div>
         </div>
-      </div>
-      <div class="row">
         <div class="col-sm-6">
           <div class="white-box">
-            <h3 class="box-title">Patients's Account Information</h3>
+            <h3 class="box-title">Enter les informations de connexion</h3>
             <form class="form-material form-horizontal">
+              <div class="form-group">
+                <label class="col-md-12" for="example-text">Nom d'utilisateur</label>
+                <div class="col-md-12">
+                  <input type="text" id="example-ext" [(ngModel)]='patient.username' name="example-text" class="form-control" placeholder="Nom D'utilisateur du patient">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-email">Email</label>
                 <div class="col-md-12">
-                  <input type="email" id="example-email" name="example-email" class="form-control" placeholder="enter your email">
+                  <input type="email" id="example-email" [(ngModel)]="patient.email" name="example-email" class="form-control" placeholder="Email du patient">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-12" for="example-phone">Phone</label>
+                <label class="col-md-12" for="example-phone">Numéro Téléphone</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-phone" name="example-phone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999">
+                  <input type="text" id="example-phone" [(ngModel)]="patient.phone_number" name="example-phone" class="form-control" placeholder="Numéro Téléphone du patient" data-mask="(999) 999-9999">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-12" for="pwd">Password</label>
+                <label class="col-md-12" for="pwd">Mot de passe</label>
                 <div class="col-md-12">
-                  <input type="password" id="pwd" name="pwd" class="form-control" placeholder="enter your password"> </div>
+                  <input type="password" id="pwd" [(ngModel)]="patient.password" name="pwd" class="form-control" placeholder="Mot de passe pour le patient"> </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="cpwd">Confirm Password</label>
                 <div class="col-md-12">
-                  <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="confirm your password">
+                  <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="Confirmer mot de passe">
                 </div>
               </div>
-              <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-              <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
             </form>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="white-box">
-            <h3 class="box-title">Patient's Social Information</h3>
-            <form class="form-material form-horizontal">
-              <div class="form-group">
-                <label class="col-md-12" for="furl">Facebook URL</label>
-                <div class="col-md-12">
-                  <input type="text" id="furl" name="furl" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-12" for="turl">Twitter URL</label>
-                <div class="col-md-12">
-                  <input type="text" id="turl" name="turl" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-12" for="gurl">Google Plus URL</label>
-                <div class="col-md-12">
-                  <input type="text" id="gurl" name="gurl" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-12" for="inurl">LinkedIN URL</label>
-                <div class="col-md-12">
-                  <input type="text" id="inurl" name="inurl" class="form-control">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-              <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
-            </form>
+        <div class="col-sm-12">
+          <div class="white-box" style="text-align:center">
+              <button type="submit" (click)="addPatient()" class="btn btn-info waves-effect waves-light m-r-10">Ajouter</button>
+              <button type="submit" class="btn btn-inverse waves-effect waves-light">Annuler</button>
           </div>
         </div>
       </div>

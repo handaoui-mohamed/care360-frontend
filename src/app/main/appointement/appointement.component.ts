@@ -10,7 +10,6 @@ export class Appointement implements AfterViewInit {
 	appointements: any[] = [];
 
 	ngAfterViewInit() {
-		$.getScript("assets/js/jquery-ui.min.js");
 		$.getScript("assets/js/moment.min.js");
 		$.getScript('assets/js/fullcalendar.min.js');
 		$.getScript("assets/js/jquery.fullcalendar.js");

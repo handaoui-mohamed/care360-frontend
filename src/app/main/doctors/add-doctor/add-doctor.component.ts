@@ -1,15 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-declare var $:any;
+import { Router } from "@angular/router";
+import { UserService } from "../../services";
+declare var $: any;
 
 @Component({
-	moduleId: module.id,
-	selector: 'add-doctor',
-	templateUrl: './add-doctor.component.html'
+    moduleId: module.id,
+    selector: 'add-doctor',
+    templateUrl: './add-doctor.component.html'
 })
-export class AddDoctor implements OnInit{
-	doctor: any = {};
+export class AddDoctor implements OnInit {
+    doctor: any = {description:""};
 
-	ngOnInit(){
+    constructor(private userService: UserService, private router: Router) { }
+
+    ngOnInit() {
         $('.mydatepicker').datepicker();
-	}
+    }
+
+    addDoctor() {
+        this.userService.addPatient(this.doctor).subscribe((data) => {
+            this.router.navigate(['doctors-list']);
+        }, (error) => {
+
+        });
+    }
 }
