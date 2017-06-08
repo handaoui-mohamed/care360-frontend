@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from "../../authentication/auth.service";
 
 @Component({
 	moduleId: module.id,
@@ -7,11 +8,9 @@ import { Component } from '@angular/core';
 	styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-	title = 'app works!';
-	user = {
-		username: 'handaoui',
-		password: 'handaoui',
-		full_name: 'handaoui',
-		type: 'Patient'
-	};
+	user = {};
+
+	constructor(private authService:AuthService){
+		this.user = this.authService.getCurrentUser();
+	}
 }

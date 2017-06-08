@@ -72,22 +72,8 @@ File: css
 
 .patient-sliders:hover {
   box-shadow: 0px 0px 20px #000;
-  width: 260px;
-  height: 260px;
 }
 
-.patient-sliders:hover img{
-  max-height: 260px !important;
-}
-
-.patient-sliders:hover .carousel-inner{
-  height: 260px;
-}
-
-.alert {
-  margin-bottom: -20px !important;
-  color: #f34a68 !important;
-}
 
 .preloader {
   width: 100%;
@@ -6021,10 +6007,6 @@ ul.list-icons li i {
   padding: 15px;
 }
 
-#side-menu li.active > a {
-  background: rgba(0, 0, 0, 0.02);
-}
-
 #side-menu li a {
   color: #54667a;
   border-left: 3px solid #4F5467;
@@ -6038,20 +6020,12 @@ ul.list-icons li i {
   background: rgba(0, 0, 0, 0.1);
 }
 
-#side-menu > li > a.active {
-  border-left: 3px solid #ff6849;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0);
-}
 
 #side-menu ul > li > a:hover {
   color: #ff6849;
   background: none;
 }
 
-#side-menu ul > li > a.active {
-  color: #ff6849;
-}
 
 .sidebar .arrow {
   position: absolute;

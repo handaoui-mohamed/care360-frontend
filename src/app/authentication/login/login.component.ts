@@ -11,19 +11,19 @@ import { Config } from '../../shared/config';
 })
 
 export class LoginComponent {
-	user = { type: "Patient" };
+	user = {};
 
 	constructor(private authService: AuthService, 
 				private router: Router) {}
 
 	loginUser() {
-		console.log(this.user);
 		this.authService.login(this.user).subscribe((data) => {
 			Config.current_user = data.user;
 			Config.token = data.token;
-			this.router.navigate(['/']);
+			this.authService.save(data.user,data.token);
+			this.router.navigate(['/main']);
 		},(error)=>{
 			console.log(error);
-		})
+		});
 	}
 }

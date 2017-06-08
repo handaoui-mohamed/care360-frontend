@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "../authentication/auth.service";
+import { Config } from "../shared/config";
 declare var $: any;
 declare var swal: any;
 
@@ -7,21 +9,19 @@ declare var swal: any;
 	moduleId: module.id,
 	selector: 'main',
 	templateUrl: './main.component.html',
-	styles: ['./main.component.scss']
+	styles: ['./main.component.scss'],
+	providers: [AuthService]
 })
 
 export class MainComponent implements OnInit {
-	user = {
-		username: 'handaoui',
-		password: 'handaoui',
-		full_name: 'handaoui',
-		type: 'Patient'
-	};
+	user = {};
 
 	worker: Worker;
 	timer: any;
 
-	constructor(private router: Router) {
+	constructor(private router: Router, private authService: AuthService) {
+		authService.init();
+		this.user = Config.current_user;
 		this.startTimer();
 	}
 
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
 	}
 
 	@HostListener('mousemove', ['$event'])
-	onMouseMove(event){
+	onMouseMove(event) {
 		this.stopTimer();
 		this.startTimer();
 	}
@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
 		this.worker = new Worker(window.URL.createObjectURL(blob));
 		this.worker.onmessage = (event) => {
 			this.timer = event.data;
-			if (this.timer === 60) {
+			if (this.timer === 120) {
 				this.router.navigate(['/lockscreen']);
 				this.stopTimer();
 			}
@@ -76,5 +76,10 @@ export class MainComponent implements OnInit {
 	stopTimer() {
 		this.worker.terminate();
 		this.worker = undefined;
+	}
+
+	logout(){
+		this.authService.logout();
+		this.router.navigate(['/login']);
 	}
 }

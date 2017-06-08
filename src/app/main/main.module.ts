@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -30,4 +30,4 @@ import { Appointement } from "./appointement";
   ],
   providers: []
 })
-export class MainModule { }
+export class MainModule {}

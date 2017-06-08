@@ -14,7 +14,7 @@
         </div>
         <div class="form-group ">
           <div class="col-xs-12">
-            <input class="form-control" type="password" required="" placeholder="password" name="password" ng-model="user.password">
+            <input class="form-control" type="password" required="" placeholder="password" name="password" [(ngModel)]="user.password">
           </div>
           <div class="ng-alert" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
             <p class="alert" role="alert" ng-message="required">* Ce champ est requis!</p>

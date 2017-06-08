@@ -3,15 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<router-outlet></router-outlet>',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'app works!';
-  user = {
-    username: 'handaoui',
-    password: 'handaoui',
-    full_name: 'handaoui',
-    type: 'Patient'
-  };
-}
+export class AppComponent {}
