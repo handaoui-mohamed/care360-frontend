@@ -10,7 +10,17 @@ declare var $: any;
     providers: [UserService]
 })
 export class AddPatient implements OnInit {
-	patient: any = {description:""};
+	patient: any = {
+        // first_name:"handaoui",
+        // last_name:"mohamed",
+        // email:"test@test.com",
+        // address:"quelque part",
+        // phone_number:"56465465465",
+        // username:"mohamed1",
+        // birthday:"03/04/1994",
+        // cases:[1],
+        // password:"03041994"
+    };
 
     constructor(private userService:UserService,private router:Router){}
 	ngOnInit() {
@@ -19,7 +29,7 @@ export class AddPatient implements OnInit {
 
     addPatient(){
         this.userService.addPatient(this.patient).subscribe((data)=>{
-            this.router.navigate(['patients-list']);
+            this.router.navigate(['main/patients-list']);
         },(error)=>{
 
         });

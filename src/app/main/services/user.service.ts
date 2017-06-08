@@ -20,7 +20,7 @@ export class UserService{
 
 	addUser(user,type:Number){
 		let headers = new Headers();
-		headers.append('Authorization', 'bearer '+this.authService.userToken);
+		headers.append('Authorization', 'bearer '+this.authService.userToken());
 		return this.http.post(Config.BaseUrl+'users/'+type,user,{headers:headers}).map(res => res.json());
 	}
 
@@ -34,7 +34,7 @@ export class UserService{
 
 	getUsers(type:Number){
 		let headers = new Headers();
-		headers.append('Authorization', 'bearer '+this.authService.userToken);
+		headers.append('Authorization', 'bearer '+this.authService.userToken());
 		return this.http.get(Config.BaseUrl+'users/'+type,{headers:headers}).map(res => res.json());
 	}
 }
