@@ -9,12 +9,12 @@
     <div class="container-fluid">
       <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h4 class="page-title">Ajouter Médecin</h4>
+          <h4 class="page-title">Ajouter Administrateur</h4>
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
           <ol class="breadcrumb">
             <li><a [routerLink]="'/main'">Hospital</a></li>
-            <li class="active">Ajouter Médecin</li>
+            <li class="active">Ajouter Administrateur</li>
           </ol>
         </div>
         <!-- /.col-lg-12 -->
@@ -22,46 +22,38 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="white-box">
-            <h3 class="box-title">Enter les informations concernant le Médecin</h3>
+            <h3 class="box-title">Enter les informations concernant le Administrateur</h3>
             <form class="form-material form-horizontal">
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Nom</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-text" [(ngModel)]='doctor.last_name' name="example-text" class="form-control" placeholder="Nom du médecin">
+                  <input type="text" id="example-text" [(ngModel)]='admin.last_name' name="example-text" class="form-control" placeholder="Nom du administrateur">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Prénom</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-text" [(ngModel)]='doctor.first_name' name="example-text" class="form-control" placeholder="Prénom du médecin">
+                  <input type="text" id="example-text" [(ngModel)]='admin.first_name' name="example-text" class="form-control" placeholder="Prénom du administrateur">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Adresse</label>
                 <div class="col-md-12">
-                  <input type="text" id="exampe-text" [(ngModel)]='doctor.address' name="example-text" class="form-control" placeholder="Adresse du médecin">
+                  <input type="text" id="exampe-text" [(ngModel)]='admin.address' name="example-text" class="form-control" placeholder="Adresse du administrateur">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="bdate">Date de Naissance</label>
                 <div class="col-md-12">
-                  <input type="text" id="bdate" name="bdate" [(ngModel)]='doctor.birthday' class="form-control mydatepicker" placeholder="Date de Naissance du Médecin">
+                  <input type="text" id="bdate" name="bdate" [(ngModel)]='admin.birthday' class="form-control mydatepicker" placeholder="Date de Naissance du administrateur">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-12">Maladies</label>
-                <div class="col-sm-12">
-                  <span><input type="checkbox" name="alzheimer" [(ngModel)]="alzheimer">Alzheimer </span>
-                  <span><input type="checkbox" name="pregnent" [(ngModel)]="pregnent"> Grossesse à risque</span>
-                  <span><input type="checkbox" name="diabetic" [(ngModel)]="diabetic"> Diabétique</span>
-                </div>
-              </div>
-              <!--<div class="form-group">
                 <label class="col-md-12">Description</label>
                 <div class="col-md-12">
-                  <textarea class="form-control" rows="1" name="decription_médecin [(ngModel)]="doctor.description"></textarea>
+                  <textarea class="form-control" rows="1" name="decription_administrateur" [(ngModel)]="admin.description"></textarea>
                 </div>
-              </div>-->
+              </div>
             </form>
           </div>
         </div>
@@ -72,26 +64,26 @@
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Nom d'utilisateur</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-ext" [(ngModel)]='doctor.username' name="example-text" class="form-control" placeholder="Nom D'utilisateur du médecin">
+                  <input type="text" id="example-ext" [(ngModel)]='admin.username' name="example-text" class="form-control" placeholder="Nom D'utilisateur du administrateur">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-email">Email</label>
                 <div class="col-md-12">
-                  <input type="email" id="example-email" [(ngModel)]="doctor.email" name="example-email" class="form-control" placeholder="Email du médecin">
+                  <input type="email" id="example-email" [(ngModel)]="admin.email" name="example-email" class="form-control" placeholder="Email du administrateur">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-phone">Numéro Téléphone</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-phone" [(ngModel)]="doctor.phone_number" name="example-phone" class="form-control" placeholder="Numéro Téléphone du médecin"
+                  <input type="text" id="example-phone" [(ngModel)]="admin.phone_number" name="example-phone" class="form-control" placeholder="Numéro Téléphone du administrateur"
                     data-mask="(999) 999-9999">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="pwd">Mot de passe</label>
                 <div class="col-md-12">
-                  <input type="password" id="pwd" [(ngModel)]="doctor.password" name="pwd" class="form-control" placeholder="Mot de passe pour le médecin">                  </div>
+                  <input type="password" id="pwd" [(ngModel)]="admin.password" name="pwd" class="form-control" placeholder="Mot de passe pour le administrateur">                  </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="cpwd">Confirm Password</label>
@@ -104,7 +96,7 @@
         </div>
         <div class="col-sm-12">
           <div class="white-box" style="text-align:center">
-            <button type="submit" (click)="addDoctor()" class="btn btn-info waves-effect waves-light m-r-10">Ajouter</button>
+            <button type="submit" (click)="addadmin()" class="btn btn-info waves-effect waves-light m-r-10">Ajouter</button>
             <button type="submit" class="btn btn-inverse waves-effect waves-light">Annuler</button>
           </div>
         </div>

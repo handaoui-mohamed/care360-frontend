@@ -51,11 +51,9 @@
               <div class="form-group">
                 <label class="col-sm-12">Maladies</label>
                 <div class="col-sm-12">
-                  <select class="form-control" [(ngModel)]="patient.cases" name="patientCases">
-                      <option value="1">Alzheimer</option>
-                      <option value="2">Grossesse à risque</option>
-                      <option value="3">Diabétique</option>
-                  </select>
+                  <span><input type="checkbox" name="alzheimer" [(ngModel)]="alzheimer">Alzheimer </span>
+                  <span><input type="checkbox" name="pregnent" [(ngModel)]="pregnent"> Grossesse à risque</span>
+                  <span><input type="checkbox" name="diabetic" [(ngModel)]="diabetic"> Diabétique</span>
                 </div>
               </div>
               <!--<div class="form-group">
@@ -86,13 +84,14 @@
               <div class="form-group">
                 <label class="col-md-12" for="example-phone">Numéro Téléphone</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-phone" [(ngModel)]="patient.phone_number" name="example-phone" class="form-control" placeholder="Numéro Téléphone du patient" data-mask="(999) 999-9999">
+                  <input type="text" id="example-phone" [(ngModel)]="patient.phone_number" name="example-phone" class="form-control" placeholder="Numéro Téléphone du patient"
+                    data-mask="(999) 999-9999">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="pwd">Mot de passe</label>
                 <div class="col-md-12">
-                  <input type="password" id="pwd" [(ngModel)]="patient.password" name="pwd" class="form-control" placeholder="Mot de passe pour le patient"> </div>
+                  <input type="password" id="pwd" [(ngModel)]="patient.password" name="pwd" class="form-control" placeholder="Mot de passe pour le patient">                  </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="cpwd">Confirm Password</label>
@@ -105,8 +104,8 @@
         </div>
         <div class="col-sm-12">
           <div class="white-box" style="text-align:center">
-              <button type="submit" (click)="addPatient()" class="btn btn-info waves-effect waves-light m-r-10">Ajouter</button>
-              <button type="submit" class="btn btn-inverse waves-effect waves-light">Annuler</button>
+            <button type="submit" (click)="addPatient()" class="btn btn-info waves-effect waves-light m-r-10">Ajouter</button>
+            <button type="submit" class="btn btn-inverse waves-effect waves-light">Annuler</button>
           </div>
         </div>
       </div>

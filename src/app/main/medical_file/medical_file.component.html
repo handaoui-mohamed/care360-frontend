@@ -1,0 +1,194 @@
+<div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+<div id="wrapper">
+  <!-- Page Content -->
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+          <h4 class="page-title">Dossier de "<span class="caps">{{ patient.first_name }} {{ patient.last_name }}</span>"</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="#">Hospital</a></li>
+            <li class="active">Dossier Médical</li>
+          </ol>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!--content-->
+    </div>
+    <div class="row" *ngIf="user.type!=='Patient'" id="patient-history">
+      <div class="col-sm-12">
+        <div class="white-box">
+          <h4>Historique des Traitements</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="user.type!=='Patient'">
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Traitement <span class="label label-warning">non Terminer</span></h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Traitement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let traitement of traitements">
+                  <template [ngIf]="!traitement.done && !traitement.delete">
+                    <td>{{ traitement.id }}</td>
+                    <td>{{ traitement.content }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Traitement <span class="label label-success">Terminé</span></h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Traitement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let traitement of traitements">
+                  <template [ngIf]="traitement.done && !traitement.delete">
+                    <td>{{ traitement.id }}</td>
+                    <td>{{ traitement.content }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Traitement <span class="label label-danger">Supprimer</span></h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Traitement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let traitement of traitements">
+                  <template [ngIf]="traitement.delete">
+                    <td>{{ traitement.id }}</td>
+                    <td>{{ traitement.content }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" *ngIf="user.type!=='Patient'">
+      <div class="col-sm-12">
+        <div class="white-box">
+          <h4>Historique des prises</h4>
+        </div>
+      </div>
+    </div>
+    <!--<td><span class="label label-danger">admin</span> </td>-->
+    <div class="row" *ngIf="user.type!=='Patient'">
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Prise de Glycémie</h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Valeur</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let sample of samples">
+                  <template [ngIf]="sample.type==='glycemie'">
+                    <td>{{ sample.id }}</td>
+                    <td>{{ sample.value }}</td>
+                    <td>{{ sample.date }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Prise de Tension</h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Valeur</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let sample of samples">
+                  <template [ngIf]="sample.type==='tension'">
+                    <td>{{ sample.id }}</td>
+                    <td>{{ sample.value }}</td>
+                    <td>{{ sample.date }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="white-box">
+          <h3 class="box-title">Prise de Poids</h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Valeur</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let sample of samples">
+                  <template [ngIf]="sample.type==='poids'">
+                    <td>{{ sample.id }}</td>
+                    <td>{{ sample.value }}</td>
+                    <td>{{ sample.date }}</td>
+                  </template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

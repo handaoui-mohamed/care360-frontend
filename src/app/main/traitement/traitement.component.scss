@@ -107,6 +107,11 @@ li:hover .delete {
   opacity: 1;
 }
 
+.check:hover .delete,.checked:hover .delete {
+  width: 40px;
+  opacity: 1;
+}
+
 li:active .delete {
   width: 40px;
   opacity: 1;
@@ -134,6 +139,23 @@ li:active .delete {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+
+.check {
+  opacity: 1;
+  color: #555;
+  margin-right: 5px;
+  transition: linear .3s;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.checked{
+  color: #6fca42;
+}
+
 
 footer {
   text-align: center;

@@ -19,20 +19,21 @@
       </div>
       <div class="wrapper">
         <div class="list-top">
-          <h2>Traitement par Médecin</h2>
+          <h2 *ngIf="user.type==='Patient'">Traitement par Médecin</h2>
+          <h2 *ngIf="user.type!=='Patient'">Traitement pour: <span class="caps">{{ patient.first_name }} {{ patient.last_name }}</span></h2>
           <i class="fa fa-plus input-activate" aria-hidden="true" [ngClass]="{'removed': user.type==='Patient'}"></i>
         </div>
         <div class="to-do-input-wrapper">
           <form (ngSubmit)="addTodo()">
-            <input type="text" name="add-todo" [(ngModel)]="newTodo.content" placeholder="Press enter to add a activity" id="to-do-input">
+            <input type="text" name="add-todo" [(ngModel)]="newTodo.content" placeholder="Ajouter un Traitement" id="to-do-input">
           </form>
         </div>
         <div>
           <ul class="to-do-list">
             <li [ngClass]="{'removed': todo.deleted}" class="even" *ngFor="let todo of todos, let index=index">
               <h4>
-                <i class="fa fa-trash-o delete" (click)="removeTodo(todo.id,index)" aria-hidden="true"></i>
-                <i class="fa fa-check-o check" (click)="checkTodo(todo)" aria-hidden="true"></i>
+                <i class="fa fa-trash-o delete" [ngClass]="{'removed': user.type==='Patient'}" (click)="removeTodo(todo.id,index)" aria-hidden="true"></i>
+                <i class="fa fa-check check" [ngClass]="{'checked': todo.done}" (click)="checkTodo(todo)" aria-hidden="true"></i>
                 <span class="li-text" (click)="checkTodo(todo)" [ngClass]="{'complete': todo.done}">{{ todo.content }}</span>
               </h4>
             </li>
@@ -42,4 +43,3 @@
       <!--content-->
     </div>
   </div>
-</div>

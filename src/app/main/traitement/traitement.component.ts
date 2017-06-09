@@ -2,14 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../authentication/auth.service";
 import { TraitementService } from "./traitement.service";
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from "../services/user.service";
+import { UserService,SampleService } from "../services";
 declare var $: any;
 @Component({
 	moduleId: module.id,
 	selector: "traitement",
 	templateUrl: "./traitement.component.html",
 	styleUrls: ['./traitement.component.scss'],
-	providers: [TraitementService,UserService]
+	providers: [TraitementService,UserService,SampleService]
 })
 export class Traitement implements OnInit {
 	user = {};
@@ -17,13 +17,18 @@ export class Traitement implements OnInit {
 	patientId: String;
 	newTodo: any = {};
 	todos: any[] = [];
+	samples:any[] = [];
 
 	constructor(private authService: AuthService, private traitementService: TraitementService, private route: ActivatedRoute,
-				private userService:UserService) {
+				private userService:UserService, private sampleService:SampleService) {
 		this.route.params.subscribe(params => {
 			this.patientId = params['patientId'];
 			this.userService.getUserById(this.patientId).subscribe((data)=>{
 				this.patient = data.element;
+			},(error)=>{});
+			this.sampleService.getSamples(this.patientId).subscribe((data)=>{
+				this.samples = data.elements;
+				console.log(this.samples);
 			},(error)=>{});
 			this.traitementService.getTraitement(this.patientId).subscribe((data) => {
 				this.todos = data.elements;

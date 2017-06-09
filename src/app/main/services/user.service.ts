@@ -18,6 +18,11 @@ export class UserService{
 		return this.addUser(user,2);
 	}
 
+	addAdmin(user){
+		return this.addUser(user,3);
+	}
+
+
 	addUser(user,type:Number){
 		let headers = new Headers();
 		headers.append('Authorization', 'bearer '+this.authService.userToken());
@@ -30,6 +35,10 @@ export class UserService{
 
 	getDoctors(){
 		return this.getUsers(2);
+	}
+
+	getAdmins(){
+		return this.getUsers(3);
 	}
 
 	getUsers(type:Number){

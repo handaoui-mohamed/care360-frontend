@@ -5,12 +5,12 @@ declare var $: any;
 
 @Component({
     moduleId: module.id,
-    selector: 'add-doctor',
-    templateUrl: './add-doctor.component.html',
+    selector: 'add-admin',
+    templateUrl: './add-admin.component.html',
     providers: [UserService]
 })
-export class AddDoctor implements OnInit {
-    doctor: any = {
+export class AddAdmin implements OnInit {
+    admin: any = {
         // first_name: "handaoui",
         // last_name: "mohamed",
         // email: "test@test.com",
@@ -21,9 +21,6 @@ export class AddDoctor implements OnInit {
         // cases: [1],
         // password: "03041994"
     };
-    alzheimer = false;
-    pregnent  = false;
-    diabetic  = false;
 
     constructor(private userService: UserService, private router: Router) { }
 
@@ -32,12 +29,8 @@ export class AddDoctor implements OnInit {
     }
 
     addDoctor() {
-        this.doctor.cases = [];
-        if (this.alzheimer) this.doctor.cases.push(1);
-        if (this.pregnent) this.doctor.cases.push(2);
-        if (this.diabetic) this.doctor.cases.push(3);
-        this.userService.addDoctor(this.doctor).subscribe((data) => {
-            this.router.navigate(['main/doctors-list']);
+        this.userService.addAdmin(this.admin).subscribe((data) => {
+            this.router.navigate(['main/admins-list']);
         }, (error) => {
 
         });

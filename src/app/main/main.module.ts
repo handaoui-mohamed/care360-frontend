@@ -10,8 +10,10 @@ import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard';
 import { PatientsList, AddPatient } from "./patients";
 import { DoctorsList, AddDoctor } from "./doctors";
+import { AdminsList, AddAdmin } from "./admins";
 import { Appointement } from "./appointement";
 import { Traitement } from "./traitement";
+import { MedicalFile } from "./medical_file";
 
 @NgModule({
   declarations: [
@@ -21,8 +23,11 @@ import { Traitement } from "./traitement";
     PatientsList,
     DoctorsList,
     AddDoctor,
+    AdminsList,
+    AddAdmin,
     Appointement,
-    Traitement
+    Traitement,
+    MedicalFile
   ],
   imports: [
     FormsModule,
