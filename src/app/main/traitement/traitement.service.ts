@@ -11,18 +11,24 @@ export class TraitementService{
 	getTraitement(userId){
 		let headers = new Headers();
 		headers.append('Authorization', 'bearer '+this.authService.userToken());
-		return this.http.get(Config.BaseUrl+'traitement/'+userId,{headers:headers}).map(res => res.json());
+		return this.http.get(Config.BaseUrl+'traitements/'+userId,{headers:headers}).map(res => res.json());
 	}
 
 	addTraitement(userId,traitement){
 		let headers = new Headers();
 		headers.append('Authorization', 'bearer '+this.authService.userToken());
-		return this.http.post(Config.BaseUrl+'traitement/'+userId,traitement,{headers:headers}).map(res => res.json());
+		return this.http.post(Config.BaseUrl+'traitements/'+userId,traitement,{headers:headers}).map(res => res.json());
 	}
 
 	deleteTraitement(traitementId){
 		let headers = new Headers();
 		headers.append('Authorization', 'bearer '+this.authService.userToken());
-		return this.http.delete(Config.BaseUrl+'traitement/'+traitementId,{headers:headers}).map(res => res.json());
+		return this.http.delete(Config.BaseUrl+'traitements/'+traitementId,{headers:headers}).map(res => res.json());
+	}
+
+	checkTraitement(traitement){
+		let headers = new Headers();
+		headers.append('Authorization', 'bearer '+this.authService.userToken());
+		return this.http.put(Config.BaseUrl+'traitements/'+traitement.id,traitement,{headers:headers}).map(res => res.json());
 	}
 }

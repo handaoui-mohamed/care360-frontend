@@ -15,10 +15,8 @@ export class Traitement implements OnInit {
 	user = {};
 	patient = {};
 	patientId: String;
-	newTodo: String;
-	todos: any[] = [
-		{ id: 0, 'name': "test" }
-	];
+	newTodo: any = {};
+	todos: any[] = [];
 
 	constructor(private authService: AuthService, private traitementService: TraitementService, private route: ActivatedRoute,
 				private userService:UserService) {
@@ -28,7 +26,8 @@ export class Traitement implements OnInit {
 				this.patient = data.element;
 			},(error)=>{});
 			this.traitementService.getTraitement(this.patientId).subscribe((data) => {
-				this.todos = data.element;
+				this.todos = data.elements;
+				console.log(this.todos)
 			}, (error) => { });
 		});
 		this.user = this.authService.getCurrentUser();
@@ -50,14 +49,19 @@ export class Traitement implements OnInit {
 	addTodo() {
 		this.traitementService.addTraitement(this.patientId, this.newTodo).subscribe((data) => {
 			this.todos.push(data.element);
-			console.log(this.todos);
 		}, (error) => { });
 	}
 
 	removeTodo(traitementId, index) {
 		this.traitementService.deleteTraitement(traitementId).subscribe((data) => {
 			this.todos.splice(index, 1);
-			console.log(this.todos);
 		}, (error) => { });
+	}
+
+	checkTodo(traitement, index) {
+		traitement.done = !traitement.done;
+		this.traitementService.checkTraitement(traitement).subscribe((data) => {
+			this.todos[index] = data.element;
+		}, (error) => { traitement.done = !traitement.done; });
 	}
 }

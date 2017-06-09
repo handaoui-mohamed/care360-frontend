@@ -98,6 +98,7 @@ export class DashboardComponent {
 		console.log(this.newSample);
 		this.sampleService.addSample(this.user.id,this.newSample).subscribe((data)=>{
 			console.log(data.element);
+			this.newSample = {};
 		},(error)=>{});
 	}
 }
