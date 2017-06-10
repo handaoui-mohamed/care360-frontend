@@ -24,6 +24,8 @@ export class MedicalFile {
 			this.patientId = params['patientId'];
 			this.userService.getUserById(this.patientId).subscribe((data)=>{
 				this.patient = data.element;
+				console.log(this.patient);
+				
 			},(error)=>{});
 			this.sampleService.getSamples(this.patientId).subscribe((data)=>{
 				this.samples = data.elements;

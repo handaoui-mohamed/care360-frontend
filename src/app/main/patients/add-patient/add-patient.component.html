@@ -27,25 +27,25 @@
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Nom</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-text" [(ngModel)]='patient.last_name' name="example-text" class="form-control" placeholder="Nom du patient">
+                  <input type="text" id="example-text" [(ngModel)]='patient.last_name' name="last_name" class="form-control" placeholder="Nom du patient">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Prénom</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-text" [(ngModel)]='patient.first_name' name="example-text" class="form-control" placeholder="Prénom du patient">
+                  <input type="text" id="example-text" [(ngModel)]='patient.first_name' name="firs_name" class="form-control" placeholder="Prénom du patient">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Adresse</label>
                 <div class="col-md-12">
-                  <input type="text" id="exampe-text" [(ngModel)]='patient.address' name="example-text" class="form-control" placeholder="Adresse du patient">
+                  <input type="text" id="exampe-text" [(ngModel)]='patient.address' name="address" class="form-control" placeholder="Adresse du patient">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-12" for="bdate">Date de Naissance</label>
                 <div class="col-md-12">
-                  <input type="text" id="bdate" name="bdate" [(ngModel)]='patient.birthday' class="form-control mydatepicker" placeholder="Date de Naissance du Patient">
+                  <input type="date" id="date" name="bdate" [(ngModel)]='patient.birthday' class="form-control" placeholder="Date de Naissance du Patient">
                 </div>
               </div>
               <div class="form-group">
@@ -72,7 +72,7 @@
               <div class="form-group">
                 <label class="col-md-12" for="example-text">Nom d'utilisateur</label>
                 <div class="col-md-12">
-                  <input type="text" id="example-ext" [(ngModel)]='patient.username' name="example-text" class="form-control" placeholder="Nom D'utilisateur du patient">
+                  <input type="text" id="example-ext" [(ngModel)]='patient.username' name="example" class="form-control" placeholder="Nom D'utilisateur du patient">
                 </div>
               </div>
               <div class="form-group">

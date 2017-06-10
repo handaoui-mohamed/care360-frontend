@@ -131,40 +131,40 @@
         var today = new Date($.now());
 
         var defaultEvents =  [{
-                title: 'Released Ample Admin!',
+                title: 'Rendez-vous',
                 start: new Date($.now() + 506800000),
                 className: 'bg-info'
             }, {
-                title: 'This is today check date',
+                title: 'Transport',
                 start: today,
                 end: today,
                 className: 'bg-danger'
             }, {
-                title: 'This is your birthday',
+                title: 'Rendez-vous',
                 start: new Date($.now() + 848000000),
                 className: 'bg-info'
             },{
-                title: 'your meeting with john',
+                title: 'Rendez-vous',
                 start: new Date($.now() - 1099000000),
                 end:  new Date($.now() - 919000000),
                 className: 'bg-warning'
             },{
-                title: 'your meeting with john',
+                title: 'Rendez-vous',
                 start: new Date($.now() - 1199000000),
                 end: new Date($.now() - 1199000000),
                 className: 'bg-purple'
             },{
-                title: 'your meeting with john',
+                title: 'Traitement',
                 start: new Date($.now() - 399000000),
                 end: new Date($.now() - 219000000),
                 className: 'bg-info'
             },  
               {
-                title: 'Hanns birthday',
+                title: 'Rendez-vous',
                 start: new Date($.now() + 868000000),
                 className: 'bg-danger'
             },{
-                title: 'Like it?',
+                title: 'Transport',
                 start: new Date($.now() + 348000000),
                 className: 'bg-success'
             }];

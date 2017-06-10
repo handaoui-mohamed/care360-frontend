@@ -57,57 +57,34 @@ $(document).ready(function() {
             eventLimit: true, // allow "more" link when too many events
             events: [
                 {
-                    title: 'All Day Event',
+                    title: 'Rendez-vous',
                     start: new Date(year, month, day-8)
                 },
                 {
-                    title: 'Long Event',
-                    start: new Date(year, month, day-5),
-                    end: new Date(year, month, day-2)
-                },
-                {
                     id: 999,
-                    title: 'Repeating Event',
+                    title: 'Consulter Traitement',
                     start: new Date(year, month, day)
                 },
                 {
                     id: 999,
-                    title: 'Repeating Event',
+                    title: 'Consulter Traitement',
                     start: new Date(year, month, day+7)
                 },
                 {
-                    title: 'Conference',
-                    start: new Date(year, month, day+3),
-                    end: new Date(year, month, day+6)
-                },
-                {
-                    title: 'Meeting',
+                    title: 'Rendez-vous',
                     start: new Date(year, month, day+5)
                 },
                 {
-                    title: 'Lunch',
+                    title: 'Transport',
                     start: new Date(year, month, day+7)
                 },
                 {
-                    title: 'Meeting',
-                    start: new Date(year, month, day+10)
-                },
-                {
-                    title: 'Happy Hour',
-                    start: new Date(year, month, day+10)
-                },
-                {
-                    title: 'Dinner',
+                    title: 'Rendez-vous',
                     start: new Date(year, month, day+13)
                 },
                 {
-                    title: 'Birthday Party',
+                    title: 'Transport',
                     start: new Date(year, month, day+15)
-                },
-                {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: new Date(year, month, day+18)
                 }
             ]
         });
