@@ -40,7 +40,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let traitement of traitements">
+                <tr *ngFor="let traitement of todos">
                   <template [ngIf]="!traitement.done && !traitement.delete">
                     <td>{{ traitement.id }}</td>
                     <td>{{ traitement.content }}</td>
@@ -64,7 +64,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let traitement of traitements">
+                <tr *ngFor="let traitement of todos">
                   <template [ngIf]="traitement.done && !traitement.delete">
                     <td>{{ traitement.id }}</td>
                     <td>{{ traitement.content }}</td>
@@ -88,7 +88,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let traitement of traitements">
+                <tr *ngFor="let traitement of todos">
                   <template [ngIf]="traitement.delete">
                     <td>{{ traitement.id }}</td>
                     <td>{{ traitement.content }}</td>
