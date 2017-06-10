@@ -17,7 +17,6 @@ import { NotFoundErrorComponent } from './not-found';
 import { AppComponent } from './app.component';
 import { LoginComponent } from "./authentication/login";
 import { LockScreenComponent } from "./authentication/lockscreen";
-import { IndexComponent } from "./index"
 import { ROUTES } from './app.routes';
 
 @NgModule({
@@ -25,8 +24,7 @@ import { ROUTES } from './app.routes';
     NotFoundErrorComponent,
     AppComponent,
     LoginComponent,
-    LockScreenComponent,
-    IndexComponent
+    LockScreenComponent
   ],
   imports: [
     BrowserModule,

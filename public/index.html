@@ -1,84 +1,267 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-  <title>Care 360</title>
-  <!-- Bootstrap Core CSS -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-extension.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-  <link href="assets/css/magnific-popup.css" rel="stylesheet">
-  <!-- Menu CSS -->
-  <link href="assets/css/sidebar-nav.min.css" rel="stylesheet">
-  <link href="assets/css/fullcalendar.min.css" rel="stylesheet" />
-  <!-- morris CSS -->
-  <link href="assets/css/morris.css" rel="stylesheet">
-  <!-- animation CSS -->
-  <link href="assets/css/animate.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <link href="assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+    <title>Care360</title>
 
-  <!-- Custom CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/bootstrap-wysihtml5.css" />
-  <link href="assets/css/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- color CSS -->
-  <link href="assets/css/colors/megna.css" id="theme" rel="stylesheet">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!-- Animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-<link href="styles.30fe5d6f3d36f721917c.bundle.css" rel="stylesheet"/></head>
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body id="page-top" class="landing-page">
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="login">Se Connecter</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#page-top">Acceuil</a></li>
+                        <li><a class="page-scroll" href="#features">Caractéristiques</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-image wow zoomIn">
+                    <img src="img/landing/laptop.png" alt="laptop"/>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
 
-<body>
-  <app-root>Loading...</app-root>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-image wow zoomIn">
+                    <img src="assets/images/logo-dark.png" width="400" style="
+    margin-right: -100px;
+    margin-top: 100px;" alt="laptop"/>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-  <!-- /#wrapper -->
-  <!-- jQuery -->
-  <script src="assets/js/jquery.min.js"></script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="assets/js/tether.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/bootstrap-extension.min.js"></script>
-  <!-- Menu Plugin JavaScript -->
-  <script src="assets/js/sidebar-nav.min.js"></script>
-  <!--slimscroll JavaScript -->
-  <script src="assets/js/jquery.slimscroll.js"></script>
-  <!--Wave Effects -->
-  <script src="assets/js/waves.js"></script>
-  <!--Morris JavaScript -->
-  <script src="assets/js/raphael-min.js"></script>
-  <script src="assets/js/morris.min.js"></script>
-  <script src="assets/js/jquery-ui.min.js"></script>
-  <!-- Sparkline chart JavaScript -->
-  <script src="assets/js/jquery.sparkline.min.js"></script>
-  <!-- jQuery peity -->
-  <script src="assets/js/jquery.peity.min.js"></script>
-  <script src="assets/js/jquery.peity.init.js"></script>
-  <script src="assets/js/bootstrap-datepicker.min.js"></script>
-  <!-- Custom Theme JavaScript -->
-  <script src="assets/js/jquery.magnific-popup.min.js"></script>
-  <script src="assets/js/jquery.magnific-popup-init.js"></script>
-  <script src="assets/js/custom.min.js"></script>
 
-  <script src="assets/js/wysihtml5-0.3.0.js"></script>
-  <script src="assets/js/bootstrap-wysihtml5.js"></script>
-  <script src="assets/js/dropzone.min.js"></script>
-  <!--Style Switcher -->
-  <script src="assets/js/jQuery.style.switcher.js"></script>
 
-  <script src="assets/js/sweetalert.min.js"></script>
-<script type="text/javascript" src="inline.166f0ebc9e03005a79b0.bundle.js"></script><script type="text/javascript" src="polyfills.6337285d81101d255976.bundle.js"></script><script type="text/javascript" src="vendor.8ad24a4eb0cdc47f30dc.bundle.js"></script><script type="text/javascript" src="main.db4dd5e6bd301040c8e8.bundle.js"></script></body>
 
+<section  id="features" class="container features">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Care360<br/> <span class="navy">Une plateforme Web,applications mobiles </span> </h1>
+            <p>Design et sécurisées pour des acteurs vraiment connectés.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center wow fadeInLeft">
+            <div>
+                <i class="fa fa-mobile features-icon"></i>
+                <p>Préparation et accompagnement du patient sur l'ensemble de son parcours.</p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-bar-chart features-icon"></i>
+                <p>Réduction du temps d'hospitalisation et amélioration de la convalescence du patient.</p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center  wow zoomIn">
+            <img src="img/landing/perspective.png" alt="dashboard" class="img-responsive">
+        </div>
+        <div class="col-md-3 text-center wow fadeInRight">
+            <div>
+                <i class="fa fa-envelope features-icon"></i>
+                <p>Transport dédie 24h/24 pour les patients.</p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-google features-icon"></i>
+                <p>Une plateforme Web,applications mobiles design et sécurisées pour des acteurs vraiment connectés..</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Découvrez de superbes fonctionnalités</h1>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-6 features-text wow fadeInLeft">
+            <small>Care360</small>
+            <p>CARE360 est une nouvelle solution de suivi médical connecté, mobile et cloud destinée aux établissements de santé. Pensée en collaboration avec des praticiens et des directeurs d’établissements, notre offre permet d’optimiser considérablement la préparation, l’accompagnement et le suivi des patients. Grâce à notre plateforme sécurisée, à l’utilisation des objets connectés et à notre centre de suivi infirmier 24h/24, les patients, nos infirmières et les praticiens peuvent à tout moment échanger des informations médicales et surveiller les patients à distance.</p>
+        </div>
+        <div class="col-lg-6 text-right wow fadeInRight">
+            <img src="img/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center wow zoomIn">
+                <i class="fa fa-comment big-icon"></i>
+                <h1>
+                    Nous avons ce dont vous avez besoin
+                </h1>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="contact" class="gray-section contact">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Contacter Nous</h1>
+            </div>
+        </div>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address>
+                    <strong><span class="navy">SmartIt, Inc.</span></strong><br/>
+                    BP 68M OUED SMAR, 16309, <br/>
+                    EL HARRACH, 16309 Phone: 021 51 60 77<br/>
+                    Téléphone: +2130215646165
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-color">
+                    Prêt à démarrer votre prochain projet avec nous? C'est génial! Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les meilleurs délais!!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a href="mailto:test@email.com" class="btn btn-primary">Envoyez-nous un courrier</a>
+                <p class="m-t-sm">
+                    Ou suivez-nous sur une plate-forme sociale
+                </p>
+                <ul class="list-inline social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p><strong>2017 &copy; SmartIt</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/wow/wow.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+</script>
+
+</body>
 </html>
