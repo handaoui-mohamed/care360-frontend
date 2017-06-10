@@ -3,6 +3,7 @@ import { AuthService } from "../../authentication/auth.service";
 import { TraitementService } from "./traitement.service";
 import { ActivatedRoute } from '@angular/router';
 import { UserService,SampleService } from "../services";
+import { Config } from "../../shared/config";
 declare var $: any;
 @Component({
 	moduleId: module.id,
@@ -18,9 +19,11 @@ export class Traitement implements OnInit {
 	newTodo: any = {};
 	todos: any[] = [];
 	samples:any[] = [];
+	toastr:any;
 
 	constructor(private authService: AuthService, private traitementService: TraitementService, private route: ActivatedRoute,
 				private userService:UserService, private sampleService:SampleService) {
+		this.toastr = Config.toastr;
 		this.route.params.subscribe(params => {
 			this.patientId = params['patientId'];
 			this.userService.getUserById(this.patientId).subscribe((data)=>{
@@ -53,20 +56,30 @@ export class Traitement implements OnInit {
 
 	addTodo() {
 		this.traitementService.addTraitement(this.patientId, this.newTodo).subscribe((data) => {
+			this.toastr.success('Traitement a été ajouter!', 'Succès!');
 			this.todos.push(data.element);
-		}, (error) => { });
+		}, (error) => {
+			this.toastr.warning("Traitement n'est pas ajouté!", 'Erreur!');
+		});
 	}
 
 	removeTodo(traitementId, index) {
 		this.traitementService.deleteTraitement(traitementId).subscribe((data) => {
+			this.toastr.success('Traitement a été supprimer!', 'Succès!');
 			this.todos.splice(index, 1);
-		}, (error) => { });
+		}, (error) => { 
+			this.toastr.warning("Traitement n'est pas supprimer!", 'Erreur!');
+		});
 	}
 
 	checkTodo(traitement, index) {
 		traitement.done = !traitement.done;
 		this.traitementService.checkTraitement(traitement).subscribe((data) => {
+			this.toastr.success('Traitement a été modifier!', 'Succès!');
 			this.todos[index] = data.element;
-		}, (error) => { traitement.done = !traitement.done; });
+		}, (error) => { 
+			this.toastr.warning("Traitement n'est pas modifié!", 'Erreur!');
+			traitement.done = !traitement.done; 
+		});
 	}
 }

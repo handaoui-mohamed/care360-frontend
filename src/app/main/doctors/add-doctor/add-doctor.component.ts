@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../../services";
+import { Config } from "../../../shared/config";
 declare var $: any;
 
 @Component({
@@ -24,8 +25,11 @@ export class AddDoctor implements OnInit {
     alzheimer = false;
     pregnent  = false;
     diabetic  = false;
+    toastr:any;
 
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(private userService: UserService, private router: Router) {
+        this.toastr = Config.toastr;
+     }
 
     ngOnInit() {
         $('.mydatepicker').datepicker();
@@ -37,9 +41,11 @@ export class AddDoctor implements OnInit {
         if (this.pregnent) this.doctor.cases.push(2);
         if (this.diabetic) this.doctor.cases.push(3);
         this.userService.addDoctor(this.doctor).subscribe((data) => {
+			this.toastr.success('Le médecin a été ajouter!', 'Succès!');
             this.router.navigate(['main/doctors-list']);
         }, (error) => {
-
+            error = JSON.parse(error._body)["message"];
+			this.toastr.warning(error[Object.keys(error)[0]], 'Erreur!');
         });
     }
 }

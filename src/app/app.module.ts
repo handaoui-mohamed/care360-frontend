@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from "./authentication/login";
 import { LockScreenComponent } from "./authentication/lockscreen";
 import { ROUTES } from './app.routes';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ROUTES } from './app.routes';
     FormsModule,
     HttpModule,
     MainModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

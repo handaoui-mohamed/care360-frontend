@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from "../../authentication/auth.service";
 import { SampleService } from "../services";
+import { Config } from "../../shared/config";
 declare var $:any;
 declare var swal:any;
 
@@ -14,9 +15,11 @@ declare var swal:any;
 export class DashboardComponent {
 	user:any = {};
 	newSample:any = {};
+	toastr:any;
 
 	constructor(private authService:AuthService, private sampleService:SampleService){
 		this.user = this.authService.getCurrentUser();
+		this.toastr = Config.toastr;
 	}
 
 	ngOnInit() {
@@ -97,8 +100,12 @@ export class DashboardComponent {
 		this.newSample.type = type;
 		console.log(this.newSample);
 		this.sampleService.addSample(this.user.id,this.newSample).subscribe((data)=>{
+			this.toastr.success("Le prélèvement a été ajouter!", 'Succès!');
 			console.log(data.element);
 			this.newSample = {};
-		},(error)=>{});
+		},(error)=>{
+            error = JSON.parse(error._body)["message"];
+			this.toastr.warning(error[Object.keys(error)[0]], 'Erreur!');
+		});
 	}
 }

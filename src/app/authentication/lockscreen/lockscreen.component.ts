@@ -13,19 +13,22 @@ import { AuthService } from "../auth.service";
 export class LockScreenComponent{
 	disableLogin:boolean = false;
 	user = {username:'Username'};
+	toastr:any;
 
 	constructor(private router:Router, private authService:AuthService){
-		this.user = authService.getCurrentUser();
+		this.user = authService.getCurrentUser(); 
+		this.toastr = Config.toastr;
 	}
 
 	loginUser(){
 		console.log(this.user);
 		this.authService.login(this.user).subscribe((data) => {
+			this.toastr.success('Connexion avec succès!', 'Succès!');
 			Config.token = data.token;
 			this.authService.save(data.user,data.token);
 			this.router.navigate(['/main']);
 		},(error)=>{
-			console.log(error);
+			this.toastr.warning("Mot de passe incorrecte!", 'Erreur!');
 		});
 	}
 }

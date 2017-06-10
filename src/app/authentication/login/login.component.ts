@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Config } from '../../shared/config';
@@ -12,18 +12,22 @@ import { Config } from '../../shared/config';
 
 export class LoginComponent {
 	user = {};
-
-	constructor(private authService: AuthService, 
-				private router: Router) {}
+	toastr:any;
+	constructor(private authService: AuthService,
+		private router: Router, ) {
+		this.toastr = Config.toastr;
+	}
 
 	loginUser() {
 		this.authService.login(this.user).subscribe((data) => {
+			this.toastr.success('Connexion avec succès!', 'Succès!');
 			Config.current_user = data.user;
 			Config.token = data.token;
-			this.authService.save(data.user,data.token);
+			this.authService.save(data.user, data.token);
 			this.router.navigate(['/main']);
-		},(error)=>{
-			console.log(error);
+		}, (error) => {
+			this.toastr.warning("Nom d'utilisateur ou mot de passe incorrecte", 'Erreur!');
+			console.log(error._body);
 		});
 	}
 }

@@ -25,7 +25,7 @@
         </div>
         <div class="to-do-input-wrapper">
           <form (ngSubmit)="addTodo()">
-            <input type="text" name="add-todo" [(ngModel)]="newTodo.content" placeholder="Ajouter un Traitement" id="to-do-input">
+            <input type="text" name="add-todo" [(ngModel)]="newTodo.content" placeholder="Ajouter un Traitement , cliquer sur Entrer" id="to-do-input">
           </form>
         </div>
         <div>
@@ -33,7 +33,7 @@
             <li [ngClass]="{'removed': todo.deleted}" class="even" *ngFor="let todo of todos, let index=index">
               <h4>
                 <i class="fa fa-trash-o delete" [ngClass]="{'removed': user.type==='Patient'}" (click)="removeTodo(todo.id,index)" aria-hidden="true"></i>
-                <i class="fa fa-check check" [ngClass]="{'checked': todo.done}" (click)="checkTodo(todo)" aria-hidden="true"></i>
+                <i class="fa fa-check check" [ngClass]="{'checked': todo.done, 'removed': user.type==='Medecin'}" (click)="checkTodo(todo)" aria-hidden="true"></i>
                 <span class="li-text" (click)="checkTodo(todo)" [ngClass]="{'complete': todo.done}">{{ todo.content }}</span>
               </h4>
             </li>
